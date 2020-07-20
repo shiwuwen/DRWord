@@ -1,0 +1,109 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<title>DRWord--login</title>
+<link href="{{ url_for('static', filename='Wopop_files/style_log.css') }}" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='Wopop_files/style.css')}}">
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='Wopop_files/userpanel.css')}}">
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='Wopop_files/jquery.ui.all.css')}}">
+
+<script src="{{ url_for('static', filename='js/jquery-1.11.2.min.js')}}"></script>
+
+</head>
+
+<body class="login" mycollectionplug="bind">
+<div class="login_m">
+  <div class="login_logo"><img src="{{ url_for('static', filename='Wopop_files/login2.png')}}" width="235" height="56"></div>
+  <div class="login_boder">
+      <div class="login_padding" id="login_model">
+  
+        <h2>用户名</h2>
+        <label>
+            <input type="text" id="uid" name="username" class="txt_input txt_input2" required="required"  placeholder="请输入用户名！" >
+        </label>
+        
+        <h2>密码</h2>
+        <label>
+
+            <input type="password" name="password" id="pid" class="txt_input" required="required"  placeholder="请输入密码！">
+        </label>
+        
+
+        <p class="forgot"><a id="iforgot" href="/register">没有账户？去注册</a></p>
+              
+        <div class="rem_sub">
+
+          <label>
+             <input type="button" class="sub_button" name="button" id="btn" value="登录" style="opacity: 0.7;">
+          </label>
+          
+
+        </div>  
+      </div>
+       
+    
+    
+  </div>
+
+</div>
+
+ <br>
+<p align="center"> More Infomation <a href="http://www.xjtu.edu.cn/" target="_blank" title="西安交通大学">XJTU</a> - Designed by <a href="" title="" target="_blank">WSW</a></p>
+
+
+<!-- javascript代码-->
+<script type="text/javascript">
+
+
+$(document).ready(function(e){
+
+$("#btn").click(function(){
+
+    //alert("get in1");
+
+    var uid = $("#uid").val();
+    var pid = $("#pid").val();
+    var loginjson={"u":uid,"p":pid};
+
+    //window.location.href="/index";
+    //alert("get in");
+    $.ajax({
+
+        //url:"http://115.154.137.49:5000/login_check", 交大服务器地址
+        //本机地址
+        url:"http://192.168.31.103:5000/login_check",
+        //处理页面的路径
+        data:JSON.stringify(loginjson),
+        //传递的数据.提交数一般以json格式来写,key是自定义的,:后面的值 就是上面的值
+        type:"POST",
+        //数据的提交传递方式,GET,POST 最好用POST
+        datatype:"TEXT",
+        //返回值的类型,TEXT,JSON,XML三种类型可选
+        success:function(data){
+        //如果ajax执行成功,返回来调用success函数即回调函数,返回值以参数的形式返回
+        //alert(data)
+        if(data == 'OK')
+        {
+            //var name = document.cookie;
+            //alert(name.substring(9));
+            window.location.href="/index";
+        }
+        else
+        {
+            alert(data);
+            document.getElementById('pid').value = '';
+        }
+        
+        },
+
+    });
+
+
+
+})
+});
+</script>
+ 
+</body>
+</html>

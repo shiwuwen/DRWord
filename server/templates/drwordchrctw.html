@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>DRWord--中文文本检测与识别</title>
+	<!-- Meta tag Keywords -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta charset="UTF-8" />
+	<meta name="keywords" content="" />
+	<script src="{{ url_for('static', filename='js/jquery-3.3.1.min.js')}}"></script>
+	<script>
+		addEventListener("load", function () {
+			setTimeout(hideURLbar, 0);
+		}, false);
+
+		function hideURLbar() {
+			window.scrollTo(0, 1);
+		}
+	</script>
+	<!-- //Meta tag Keywords -->
+
+	<!-- Custom-Files -->
+	<link rel="stylesheet" href="{{ url_for('static', filename='drword/css/bootstrap.css') }}">
+	<!-- Bootstrap-Core-CSS -->
+	<link rel="stylesheet" href="{{ url_for('static', filename='drword/css/style.css') }}" type="text/css" media="all">
+	<!-- Style-CSS -->
+	<link href="{{ url_for('static', filename='drword/css/font-awesome.min.css') }}" rel="stylesheet">
+	<!-- Font-Awesome-Icons-CSS -->
+	<!-- //Custom-Files -->
+</head>
+
+<body>
+	<!-- main banner -->
+	<div class="main-top" id="home">
+		<!-- header -->
+		<header>
+			<div class="container-fluid">
+				<div class="header d-lg-flex justify-content-between align-items-center py-3 px-sm-3">
+					<!-- logo -->
+					<div id="logo">
+						<h1><a href="/index"><span class="fa fa-linode mr-2"></span>DRWord</a></h1>
+					</div>
+					<!-- //logo -->
+					<div class="d-flex mt-lg-1 mt-sm-2 mt-3 justify-content-center">
+						
+						<!-- search 
+						<div class="search-w3layouts mr-3">
+							<form action="#" method="post" class="search-bottom-wthree d-flex">
+								<input class="search" type="search" placeholder="Search Here..." required="">
+								<button class="form-control btn" type="submit"><span class="fa fa-search"></span></button>
+							</form>
+						</div>
+						//search -->
+						
+						<!-- userinfo -->
+						<div class="nav_w3ls">
+						<nav>
+							<label for="drop" class="toggle">userinfo</label>
+							<input type="checkbox" id="drop" />
+							<ul class="menu">	
+								<li>
+									<!-- First Tier Drop Down -->
+									<a href="#">
+										<img id="userhead_pic" src="" width="43" height="43">
+										<span class="fa fa-angle-down" aria-hidden="true"></span>
+									</a>
+									<input type="checkbox" id="drop-2"/>
+									<ul>
+										<li><a href="/userinfo" class="drop-text">个人信息</a></li>
+										<li><a href="/changepassword" class="drop-text">修改密码</a></li>
+										<li><a href="/logout" class="drop-text">退出登录</a></li>
+										<li><a href="/closeaccount" class="drop-text">注销账户</a></li>
+									</ul>
+								</li>
+							</ul>
+						</nav>
+						</div>
+						<!-- //userinfo -->
+					</div>
+				</div>
+			</div>
+		</header>
+		<!-- //header -->
+
+		<!-- banner -->
+		<div class="banner_w3lspvt-2">
+			<ol class="breadcrumb">
+				<li class="breadcrumb-item"><a href="/index" class="font-weight-bold">Home</a></li>
+				<li class="breadcrumb-item" aria-current="page">中文文本检测与识别</li>
+			</ol>
+		</div>
+		<!-- //banner -->
+
+		<!-- introduction -->
+		<div class="banner_w3lspvt position-relative">
+			<div class="container">
+				<div class="d-md-flex">
+					<div class="w3ls_banner_txt">
+						<h3 class="w3ls_pvt-title">DRWord <br><span>中文文本检测识别</span></h3>
+						<p class="text-sty-banner">
+							DRWord是一款基于深度神经网络实现的文本检测与识别软件，
+							其能够在自然场景下对具有复杂背景的中英文文本进行识别。
+							本产品使用两种不同的深度学习算法分别在ICDAR、RCTW等数据集上进行训练，
+							用于满足不同用户识别自然图像中英文文本和中文文本的需求。
+							中文文本检测与识别使用基于adEAST+CRNN的深度学习网络进行实现，并在中文文本图片数据集RCTW上进行训练；该模块能够检测与识别自然场景下的中文文本，具有更高的识别精度。
+						</p>
+					</div>
+					<div class="banner-img">
+						<img src="{{ url_for('static', filename='drword/images/banner.png')}}" alt="" class="img-fluid">
+					</div>
+				</div>
+			</div>
+			<!-- animations effects -->
+			<div class="icon-effects-w3l">
+				<img src="{{ url_for('static', filename='drword/images/shape1.png')}}" alt="" class="img-fluid shape-wthree shape-w3-one">
+				<img src="{{ url_for('static', filename='drword/images/shape2.png')}}" alt="" class="img-fluid shape-wthree shape-w3-two">
+				<img src="{{ url_for('static', filename='drword/images/shape3.png')}}" alt="" class="img-fluid shape-wthree shape-w3-three">
+				<img src="{{ url_for('static', filename='drword/images/shape4.png')}}" alt="" class="img-fluid shape-wthree shape-w3-four">
+				<img src="{{ url_for('static', filename='drword/images/shape5.png')}}" alt="" class="img-fluid shape-wthree shape-w3-five">
+				<img src="{{ url_for('static', filename='drword/images/shape6.png')}}" alt="" class="img-fluid shape-wthree shape-w3-six">
+			</div>
+			<!-- //animations effects -->
+		</div>
+		<!-- //introduction -->
+	</div>
+	<!-- //main banner -->
+
+
+	<!-- contact -->
+	<div class="contact py-5" id="contact">
+		<div class="container pb-xl-5 pb-lg-3">
+			<div class="row">
+				<!-- get the picture to detect -->
+				<div class="col-lg-6">
+					<div class="d-flex subscribe-wthree-field">
+						<input id="dr_pic_choose" class="form-control2" type="file" data-toggle="modal">
+						<button id="dr_pic_submit" class="btn form-control btn-cont-w3 w-50" type="submit">Subscribe</button>
+					</div>
+					<img id="dr_pic" src="{{ url_for('static', filename='drword/images/b2.png')}}" alt="image" width="512" height="512" class="img-fluid2" />
+				</div>
+				<!-- //get the picture to detect -->
+
+				<div class="col-lg-6 mt-lg-0 mt-5">
+					<!-- contact form grid -->
+					<div class="contact-top1">
+						<form action="#" method="post" class="contact-wthree-do">
+							
+							<div class="form-group">
+								<div class="row">
+									<div class="col-md-12">
+										<label class=" form-control  w-50">
+											Result
+										</label>
+										<textarea id="dr_pic_result" placeholder="Results will be showed here" name="dr_pic_result" class="form-control"></textarea>
+									</div>
+								</div>
+							</div>
+						</form>
+					</div>
+					<!-- //contact form grid ends here -->
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- //contact-->
+
+	<!-- copyright bottom -->
+	<div class="copy-bottom bg-li py-4 border-top">
+		<div class="container-fluid">
+			<div class="d-md-flex px-md-3 position-relative text-center">
+				<!-- copyright -->
+				<div class="copy_right mx-md-auto mb-md-0 mb-3">
+					<p class="text-bl let">Copyright &copy; 2020. DRWord All rights reserved. More Information <a href="http://www.xjtu.edu.cn/" target="_blank" title="XJTU">XJTU</a> - Designed by <a href="#" title="WSW">WSW</a>
+					</p>
+				</div>
+				<!-- //copyright -->
+				<!-- move top icon -->
+				<a href="#home" class="move-top text-center">
+					<span class="fa fa-level-up" aria-hidden="true"></span>
+				</a>
+				<!-- //move top icon -->
+			</div>
+		</div>
+	</div>
+	<!-- //copyright bottom -->
+
+	<!-- loading the DRWord-->
+	<div id="DRWord_wait" style="position: fixed; text-align: center; width: 100%; height: 100%; top: 0; z-index: 9999; display: none;">
+		<table style="width: 100%; height: 100%;">
+            <tr>
+                <td align="center" style="">
+                    <div style="width: 900px; position: relative">
+                        <img src="{{ url_for('static', filename='drword/images/loading0.gif')}}" />
+                    </div>
+                </td>
+            </tr>
+        </table>
+	</div>
+	<!-- //loading the DRWord-->
+	
+
+<script type="text/javascript">
+
+//var basename = "http://115.154.137.49:5000/static/userpic/";
+var basename = "http://192.168.31.103:5000/static/userpic/";
+
+//get the picture to detect
+$(document).ready(function(e){
+	$("#dr_pic_choose").change(function(){
+		//alert("ddd")
+		var current_pic = this.files[0];
+		preview_dr_picture(current_pic);
+	});
+});
+function preview_dr_picture(pic){
+    var r = new FileReader();
+    r.readAsDataURL(pic);
+    r.onload=function(e){
+        $("#dr_pic").attr("src",this.result).show();    
+    };
+}
+
+//get the userhead
+$(document).ready(function(e){
+	var userhead_pic = document.getElementById('userhead_pic');
+
+	$.ajax({
+		//url:"http://115.154.137.49:5000/get_user_head",
+		url:"http://192.168.31.103:5000/get_user_head",
+		type:"POST",
+		success: function(data){	
+			userhead_pic.src = basename + data['userhead_pic'];
+		}
+	});
+
+});
+
+$(document).ready(function(e){
+	$("#dr_pic_submit").click(function(){
+		var username = document.cookie.substring(9);
+
+		var dr_pic_choose = document.getElementById("dr_pic_choose").files[0];
+		var dr_pic = document.getElementById("dr_pic");
+		var dr_pic_result = document.getElementById("dr_pic_result")
+		
+		var formData = new FormData();
+		formData.append("dr_pic_choose", dr_pic_choose);
+		//formData.append("testinfo", username);
+
+		if(document.getElementById("dr_pic_choose").value == ""){
+			alert('请先选择图片')
+		}
+		else{
+
+			$('#DRWord_wait').fadeIn();
+
+			$.ajax({
+
+				//url:"http://115.154.137.49:5000/detect_pic_rctw",
+				url:"http://192.168.31.103:5000/detect_pic_rctw",
+				type:"POST",
+				data:formData,
+				contentType:false,
+				processData:false,
+				success: function(data){
+
+					$('#DRWord_wait').fadeOut();
+
+					if(data['code'] == 'OK'){
+						var filename = username + '/' + data['dr_pic'];
+						//alert(filename)
+						dr_pic.src = basename + filename;
+						//dr_pic.src = data['dr_pic']
+						//alert(dr_pic.src);
+						var str = "";
+						
+						for(index in data['dr_pic_result']){
+							str += index + ": " + data['dr_pic_result'][index];
+							str += "\r\n";	
+						}
+						dr_pic_result.value = str;
+					}
+
+				}	
+
+			});
+		}
+	});
+});
+</script>
+
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+	<title>DRWord--index</title>
+	<!-- Meta tag Keywords -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta charset="UTF-8" />
+	<meta name="keywords" content="" />
+	<script src="{{ url_for('static', filename='js/jquery-3.3.1.min.js')}}"></script>
+	<script>
+		addEventListener("load", function () {
+			setTimeout(hideURLbar, 0);
+		}, false);
+
+		function hideURLbar() {
+			window.scrollTo(0, 1);
+		}
+	</script>
+	<!-- //Meta tag Keywords -->
+
+	<!-- Custom-Files -->
+	<link rel="stylesheet" href="{{ url_for('static', filename='drword/css/bootstrap.css') }}">
+	<!-- Bootstrap-Core-CSS -->
+	<link rel="stylesheet" href="{{ url_for('static', filename='drword/css/style.css') }}" type="text/css" media="all">
+	<!-- Style-CSS -->
+	<link href="{{ url_for('static', filename='drword/css/font-awesome.min.css') }}" rel="stylesheet">
+	<!-- Font-Awesome-Icons-CSS -->
+	<!-- //Custom-Files -->
+</head>
+
+<body>
+	<!-- main banner -->
+	<div class="main-top" id="home">
+		<!-- header -->
+		<header>
+			<div class="container-fluid">
+				<div class="header d-lg-flex justify-content-between align-items-center py-3 px-sm-3">
+					<!-- logo -->
+					<div id="logo">
+						<h1><a href="/index"><span class="fa fa-linode mr-2"></span>DRWord</a></h1>
+					</div>
+					<!-- //logo -->
+					<div class="d-flex mt-lg-1 mt-sm-2 mt-3 justify-content-center">
+						
+						<!-- search 
+						<div class="search-w3layouts mr-3">
+							<form action="#" method="post" class="search-bottom-wthree d-flex">
+								<input class="search" type="search" placeholder="Search Here..." required="">
+								<button class="form-control btn" type="submit"><span class="fa fa-search"></span></button>
+							</form>
+						</div>
+						//search -->
+
+						<!-- userinfo -->
+						<div class="nav_w3ls">
+						<nav>
+							<label for="drop" class="toggle">userinfo</label>
+							<input type="checkbox" id="drop" />
+							<ul class="menu">	
+								<li>
+									<!-- First Tier Drop Down {{ url_for('static', filename='userpic/initheadpic.jpg')}}-->
+									<a href="#">
+										<img id="userhead_pic" src="" width="44" height="44">
+										<span class="fa fa-angle-down" aria-hidden="true"></span>
+									</a>
+									<input type="checkbox" id="drop-2"/>
+									<ul>
+										<li><a href="/userinfo" class="drop-text">个人信息</a></li>
+										<li><a href="/changepassword" class="drop-text">修改密码</a></li>
+										<li><a href="/logout" class="drop-text">退出登录</a></li>
+										<li><a href="/closeaccount" class="drop-text">注销账户</a></li>
+									</ul>
+								</li>
+							</ul>
+						</nav>
+						</div>
+						<!-- //userinfo -->
+					</div>
+				</div>
+			</div>
+		</header>
+		<!-- //header -->
+
+		<!-- introduction -->
+		<div class="banner_w3lspvt position-relative">
+			<div class="container">
+				<div class="d-md-flex">
+					<div class="w3ls_banner_txt">
+						<h3 class="w3ls_pvt-title">DRWord <br><span>Introduction</span></h3>
+						<p class="text-sty-banner">
+							DRWord是一款基于深度神经网络实现的文本检测与识别软件，
+							其能够在自然场景下对具有复杂背景的中英文文本进行识别。
+							本产品使用两种不同的深度学习算法分别在ICDAR、RCTW等数据集上进行训练，
+							用于满足不同用户识别自然图像中英文文本和中文文本的需求。
+						</p>
+					</div>
+					<div class="banner-img">
+						<img src="{{ url_for('static', filename='drword/images/banner.png')}}" alt="" class="img-fluid">
+					</div>
+				</div>
+			</div>
+			<!-- animations effects -->
+			<div class="icon-effects-w3l">
+				<img src="{{ url_for('static', filename='drword/images/shape1.png')}}" alt="" class="img-fluid shape-wthree shape-w3-one">
+				<img src="{{ url_for('static', filename='drword/images/shape2.png')}}" alt="" class="img-fluid shape-wthree shape-w3-two">
+				<img src="{{ url_for('static', filename='drword/images/shape3.png')}}" alt="" class="img-fluid shape-wthree shape-w3-three">
+				<img src="{{ url_for('static', filename='drword/images/shape4.png')}}" alt="" class="img-fluid shape-wthree shape-w3-four">
+				<img src="{{ url_for('static', filename='drword/images/shape5.png')}}" alt="" class="img-fluid shape-wthree shape-w3-five">
+				<img src="{{ url_for('static', filename='drword/images/shape6.png')}}" alt="" class="img-fluid shape-wthree shape-w3-six">
+			</div>
+			<!-- //animations effects -->
+		</div>
+		<!-- //introduction -->
+	</div>
+	<!-- //main banner -->
+
+	<!-- what we can provide -->
+	<div class="what bg-li py-5" id="what">
+		<div class="container py-xl-5 py-lg-3">
+			<div class="row about-bottom-w3l text-center mt-4">
+				
+				<div class="col-lg-6 about-grid">
+					<div class="about-grid-main">
+						<img src="{{ url_for('static', filename='drword/images/img1.png')}}" alt="" class="img-fluid">
+						<h4 class="my-4">英文文本检测与识别</h4>
+						<p>
+							该模块使用基于EAST+CRNN的深度学习网络进行实现，并在英文文本图片数据集ICDAR上进行训练；该模块能够识别自然场景下的英文文本，同时具有较快的识别速度。
+						</p>
+						<a href="/drworden" class="button-w3ls btn mt-sm-5 mt-4">Go to Start</a>
+					</div>
+				</div>
+				<div class="col-lg-6 about-grid">
+					<div class="about-grid-main">
+						<img src="{{ url_for('static', filename='drword/images/img3.png')}}" alt="" class="img-fluid">
+						<h4 class="my-4">中文文本检测与识别</h4>
+						<p>
+							该模块使用基于adEAST+CRNN的深度学习网络进行实现，并在中文文本图片数据集RCTW上进行训练；该模块能够识别自然场景下的中文文本，具有更高的识别精度。
+						</p>
+						<a href="/drwordchrctw" class="button-w3ls btn mt-sm-5 mt-4">Go to Start</a>
+					</div>
+				</div>
+				
+					
+				<!-- 第三模块，本系统未使用
+				<div class="col-lg-1 about-grid my-lg-0 my-5"></div>
+
+				<div class="col-lg-4 about-grid my-lg-0 my-5">
+					<div class="about-grid-main">
+						<img src="{{ url_for('static', filename='drword/images/img2.png')}}" alt="" class="img-fluid">
+						<h4 class="my-4">网络图片识别</h4>
+						<p>
+							网络图片识别使用MTWI数据集进行训练，提供对网络商品图片的文本识别，例如淘宝商品等，能够识别中文，准确率高。
+						</p>
+						<a href="/drwordchmtwi" class="button-w3ls btn mt-sm-5 mt-4">Go to Start</a>
+					</div>
+				</div>
+				-->
+			</div>
+		</div>
+	</div>
+	<!-- //what we can provide -->
+
+	<!-- copyright bottom -->
+	<div class="copy-bottom bg-li py-4 border-top">
+		<div class="container-fluid">
+			<div class="d-md-flex px-md-3 position-relative text-center">
+				<!-- copyright -->
+				<div class="copy_right mx-md-auto mb-md-0 mb-3">
+					<p class="text-bl let">Copyright &copy; 2020. DRWord All rights reserved. More Information <a href="http://www.xjtu.edu.cn/" target="_blank" title="XJTU">XJTU</a> - Designed by <a href="#" title="WSW">WSW</a>
+					</p>
+				</div>
+				<!-- //copyright -->
+				<!-- move top icon -->
+				<a href="#home" class="move-top text-center">
+					<span class="fa fa-level-up" aria-hidden="true"></span>
+				</a>
+				<!-- //move top icon -->
+			</div>
+		</div>
+	</div>
+	<!-- //copyright bottom -->
+
+<script type="text/javascript">
+//var basename = "http://115.154.137.49:5000/static/userpic/";
+var basename = "http://192.168.31.103:5000/static/userpic/";
+
+//get the userhead
+$(document).ready(function(e){
+	var userhead_pic = document.getElementById('userhead_pic');
+
+	$.ajax({
+		//url:"http://115.154.137.49:5000/get_user_head",
+		url:"http://192.168.31.103:5000/get_user_head",
+		type:"POST",
+		success: function(data){	
+			userhead_pic.src = basename + data['userhead_pic'];
+		}
+	});
+	
+});
+</script>
+
+</body>
+
+</html>

@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>个人信息</title>
+	<!-- Meta tag Keywords -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta charset="UTF-8" />
+	<meta name="keywords" content="" />
+	<script src="{{ url_for('static', filename='js/jquery-3.3.1.min.js')}}"></script>
+	<script>
+		addEventListener("load", function () {
+			setTimeout(hideURLbar, 0);
+		}, false);
+
+		function hideURLbar() {
+			window.scrollTo(0, 1);
+		}
+	</script>
+	<!-- //Meta tag Keywords -->
+
+	<!-- Custom-Files -->
+	<link rel="stylesheet" href="{{ url_for('static', filename='drword/css/bootstrap.css') }}">
+	<!-- Bootstrap-Core-CSS -->
+	<link rel="stylesheet" href="{{ url_for('static', filename='drword/css/style.css') }}" type="text/css" media="all">
+	<!-- Style-CSS -->
+	<link href="{{ url_for('static', filename='drword/css/font-awesome.min.css') }}" rel="stylesheet">
+	<!-- Font-Awesome-Icons-CSS -->
+	<!-- //Custom-Files -->
+</head>
+
+<body>
+	<!-- main banner -->
+	<div class="main-top" id="home">
+		<!-- header -->
+		<header>
+			<div class="container-fluid">
+				<div class="header d-lg-flex justify-content-between align-items-center py-3 px-sm-3">
+					<!-- logo -->
+					<div id="logo">
+						<h1><a href="/index"><span class="fa fa-linode mr-2"></span>DRWord</a></h1>
+					</div>
+					<!-- //logo -->
+					<div class="d-flex mt-lg-1 mt-sm-2 mt-3 justify-content-center">
+						
+						<!-- search 
+						<div class="search-w3layouts mr-3">
+							<form action="#" method="post" class="search-bottom-wthree d-flex">
+								<input class="search" type="search" placeholder="Search Here..." required="">
+								<button class="form-control btn" type="submit"><span class="fa fa-search"></span></button>
+							</form>
+						</div>
+						//search -->
+						
+						<!-- userinfo -->
+						<div class="nav_w3ls">
+						<nav>
+							<label for="drop" class="toggle">userinfo</label>
+							<input type="checkbox" id="drop" />
+							<ul class="menu">	
+								<li>
+									<!-- First Tier Drop Down -->
+									<a href="#">
+										<img id="userhead_pic" src="" width="43" height="43">
+										<span class="fa fa-angle-down" aria-hidden="true"></span>
+									</a>
+									<input type="checkbox" id="drop-2"/>
+									<ul>
+										<li><a href="/userinfo" class="drop-text">个人信息</a></li>
+										<li><a href="/changepassword" class="drop-text">修改密码</a></li>
+										<li><a href="/logout" class="drop-text">退出登录</a></li>
+										<li><a href="/closeaccount" class="drop-text">注销账户</a></li>
+									</ul>
+								</li>
+							</ul>
+						</nav>
+						</div>
+						<!-- //userinfo -->
+					</div>
+				</div>
+			</div>
+		</header>
+		<!-- //header -->
+
+		<!-- banner -->
+		<div class="banner_w3lspvt-2">
+			<ol class="breadcrumb">
+				<li class="breadcrumb-item"><a href="/index" class="font-weight-bold">Home</a></li>
+				<li class="breadcrumb-item" aria-current="page">个人信息</li>
+			</ol>
+		</div>
+		<!-- //banner -->
+	</div>
+	<!-- //main banner -->
+
+	<!-- contact -->
+	<div class="contact py-5" id="contact">
+		<div class="container pb-xl-5 pb-lg-3">
+			<div class="row">
+				<div class="col-lg-6">
+					<label >头像</label>
+					<br />
+					<div class="row">
+						<div>
+							<label >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+						</div>
+						<div>
+							<img id="userhead_image" src="" alt="image" width="300" height="300" class="img-fluid2" />
+						</div>
+					</div>
+					<br />
+					<br />
+					<div class="d-flex subscribe-wthree-field">
+						<input id="userhead_image_change" class="form-control2" type="file" data-toggle="modal">
+						<button id="userinfo_submit" class="btn form-control btn-cont-w3 w-50" type="submit">修改</button>
+					</div>
+				</div>
+				<div class="col-lg-6 mt-lg-0 mt-5">
+					<!-- contact form grid -->
+					<div class="contact-top1">
+						<form action="#" method="post" class="contact-wthree-do">
+							<div class="form-group">
+								<div class="row">
+									<div class="col-md-6">
+										<label>
+											用户名
+										</label>
+										<input id="username" class="form-control" type="text" placeholder="" name="name" disabled="true">
+									</div>
+									<div class="col-md-6 mt-md-0 mt-4">
+										<label>
+											真实姓名
+										</label>
+										<input id="realname" class="form-control" type="text" placeholder="set your realname" name="name" required="">
+									</div>
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="row">
+									<div class="col-md-6">
+										<label>
+											电话号码
+										</label>
+										<input id="phonenumber" class="form-control" type="text" placeholder="xxxx xxxx xxx" name="mobile" required="">
+									</div>
+									<div class="col-md-6 mt-md-0 mt-4">
+										<label>
+											邮箱
+										</label>
+										<input id="email" class="form-control" type="email" placeholder="example@mail.com" name="email" required="">
+									</div>
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="row">
+									<div class="col-md-12">
+										<label>
+											性别
+										</label>
+										<br />
+										男性 ： <input id="sex_male" type="radio" checked="checked" name="Sex" value="male" class="form-control">
+										女性 ： <input id="sex_female" type="radio" name="Sex" value="female" class="form-control">
+									</div>
+								</div>
+							</div>
+						</form>
+					</div>
+					<!-- //contact form grid ends here -->
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- //contact-->
+
+	<!-- copyright bottom -->
+	<div class="copy-bottom bg-li py-4 border-top">
+		<div class="container-fluid">
+			<div class="d-md-flex px-md-3 position-relative text-center">
+				<!-- copyright -->
+				<div class="copy_right mx-md-auto mb-md-0 mb-3">
+					<p class="text-bl let">Copyright &copy; 2020. DRWord All rights reserved. More Information <a href="http://www.xjtu.edu.cn/" target="_blank" title="XJTU">XJTU</a> - Designed by <a href="#" title="WSW">WSW</a>
+					</p>
+				</div>
+				<!-- //copyright -->
+				<!-- move top icon -->
+				<a href="#home" class="move-top text-center">
+					<span class="fa fa-level-up" aria-hidden="true"></span>
+				</a>
+				<!-- //move top icon -->
+			</div>
+		</div>
+	</div>
+	<!-- //copyright bottom -->
+
+<script type="text/javascript">
+
+//var basename = "http://115.154.137.49:5000/static/userpic/";
+var basename = "http://192.168.31.103:5000/static/userpic/";
+
+//get the userhead
+$(document).ready(function(e){
+	var userhead_pic = document.getElementById('userhead_pic');
+
+	$.ajax({
+		//url:"http://115.154.137.49:5000/get_user_head",
+		url:"http://192.168.31.103:5000/get_user_head",
+		type:"POST",
+		success: function(data){
+			userhead_pic.src = basename + data['userhead_pic'];
+		}
+	});
+
+});	
+
+$(document).ready(function(e){
+	getuserinfo();
+});
+
+function getuserinfo(){
+	var username = document.getElementById('username');
+	var realname = document.getElementById('realname');
+	var phonenumber = document.getElementById('phonenumber');
+	var email = document.getElementById('email');
+	var sex_male = document.getElementById('sex_male');
+	var sex_female = document.getElementById('sex_female');
+	var userhead_image = document.getElementById('userhead_image');
+	var userhead_pic = document.getElementById('userhead_pic');
+
+	$.ajax({
+		//url:"http://115.154.137.49:5000/get_user_info",
+		url:"http://192.168.31.103:5000/get_user_info",
+		type:"POST",
+		success: function(data){	
+			//alert(data['realname'])
+			username.value = data['username'];
+			realname.value = data['realname'];
+			phonenumber.value = data['phonenumber'];
+			email.value = data['email']
+			if(data['sex']=='female'){
+				$("#sex_female").attr("checked","checked");
+        		$("#sex_male").removeAttr("checked");
+			}
+			else{
+				$("#sex_male").attr("checked","checked");
+        		$("#sex_female").removeAttr("checked");
+			}
+			userhead_image.src = basename + data['userhead_image'];
+			userhead_pic.src = basename + data['userhead_image'];
+		}
+	});
+}
+
+
+
+$(document).ready(function(e){
+	$("#userinfo_submit").click(function(){
+
+		var username = document.getElementById('username');
+		var realname = document.getElementById('realname');
+		var phonenumber = document.getElementById('phonenumber');
+		var email = document.getElementById('email');
+		var sex_male = document.getElementById('sex_male');
+		var sex_female = document.getElementById('sex_female');
+		var userhead_image_change = document.getElementById('userhead_image_change').files[0];
+		var sex = 'male';
+		
+		var strRegex = /^(\w-*\.*)+@(\w-?)+(\.\w{2,})+$/;
+
+		if(sex_female.checked){
+			sex = 'female';
+		}
+		else{
+			sex = 'male';
+		}
+
+		var formData = new FormData();
+		formData.append("username", username.value);
+		formData.append("realname", realname.value);
+		formData.append("phonenumber", phonenumber.value);
+		formData.append("email", email.value);
+		formData.append("sex", sex);
+		formData.append("userhead_image_change", userhead_image_change);
+		//formData.append("testinfo", username);
+
+		
+		if(document.getElementById("userhead_image_change").value == ""){
+			alert('请先选择头像')
+		}
+		else if(!(/^1[3456789]\d{9}$/.test(phonenumber.value))){
+			alert('电话号码有误！');
+			phonenumber.value == '';
+		}
+		else if(!strRegex.test(email.value)){
+			alert('email有误！');
+			email.value == '';
+		}
+		else{
+
+			$.ajax({
+				//url:"http://115.154.137.49:5000/update_user_info",
+				url:"http://192.168.31.103:5000/update_user_info",
+				type:"POST",
+				data:formData,
+				contentType:false,
+				processData:false,
+				success: function(data){
+					if(data == 'OK'){
+						getuserinfo();
+						alert('OK')
+					}
+					else{
+						alert(data);
+					}
+				}	
+				
+			});
+		}
+	});
+});
+
+//get the picture to detect
+$(document).ready(function(e){
+	$("#userhead_image_change").change(function(){
+		//alert("ddd")
+		var current_pic = this.files[0];
+		preview_dr_picture(current_pic);
+	});
+});
+function preview_dr_picture(pic){
+    var r = new FileReader();
+    r.readAsDataURL(pic);
+    r.onload=function(e){
+        $("#userhead_image").attr("src",this.result).show();    
+    };
+}
+</script>
+
+
+
+</body>
+
+</html>
